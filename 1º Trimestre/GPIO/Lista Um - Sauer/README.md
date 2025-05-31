@@ -1,5 +1,6 @@
 ## Lista de exercícios botões/chaves e leds.
 **Núcleo F4 - Soluções por Arthur Arenhardt Klein (2024)**
+
 **Núcleo G0 - Soluções por Davi Schuch**
 
 *Para todos os exercícios apresentar o esquemático completo e a descrição da atividade no caderno de campo.*
