@@ -1,5 +1,6 @@
 ## Lista de exercícios botões/chaves e leds.
-**Soluções por Arthur Arenhardt Klein (2024)**
+**Núcleo F4 - Soluções por Arthur Arenhardt Klein (2024)**
+**Núcleo G0 - Soluções por Davi Schuch**
 
 *Para todos os exercícios apresentar o esquemático completo e a descrição da atividade no caderno de campo.*
 
@@ -11,6 +12,6 @@
 
     Exemplo: Se as chave A0 estiver ligada e a chave A1 estiver desligada, a lâmpada só poderá acender se a chave B0 estiver ligada e a chave B1 estiver desligada.
 
-4. Exibir num display de sete segmentos o número Hexadecimal correspondente ao número binário presente num conjunto de quator chaves/botões.
+4. Exibir num display de sete segmentos o número Hexadecimal correspondente ao número binário presente num conjunto de quatro chaves/botões.
 
-5. Implemente um comando liga-desliga  através de um único botão.
+5. Implemente um comando liga-desliga através de um único botão.
