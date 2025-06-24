@@ -20,8 +20,8 @@
  *
  */
 
-uint16_t botoess=0;
-uint16_t botoes=0;
+uint16_t botoesB=0;
+uint16_t botoesA=0;
 
 int main(void)
 {
@@ -49,32 +49,30 @@ int main(void)
 	GPIOB->PUPDR &= ~(GPIO_PUPDR_PUPD8|GPIO_PUPDR_PUPD9);
 	GPIOB->PUPDR |=(GPIO_PUPDR_PUPD8_0|GPIO_PUPDR_PUPD9_0);
 
-  /* Infinite loop */
-  while (1)
-  {
-	  // Lendo as entradas
-	  botoes=GPIOA->IDR & (GPIO_IDR_ID0|GPIO_IDR_ID1);
-	 botoess=GPIOB->IDR & (GPIO_IDR_ID8|GPIO_IDR_ID9);
-
-	 botoess=botoess>>8;
-
-	 	 //se todas as chaves estiverem na mesma posição - ligar led verde
-	  if((botoes==0b00 && botoess==0b00)|| (botoes==0b11 && botoess==0b11)){
-		  GPIOA->ODR&=~GPIO_ODR_OD4; //led amarelo em 0
-		  GPIOB->ODR|=GPIO_ODR_OD10; //led verde em 1
-	  }
-
-	  //se somente uma chave estiver diferente - ligar led amarela
-	  else if((botoess==0b10 && botoes==0b00) || (botoess==0b10 && botoes==0b11) || (botoess==0b01 && botoes==0b00) || (botoess==0b01 && botoes==0b11) || (botoess==0b00 && botoes==0b10) || (botoess==0b11 && botoes==0b10) || (botoess==0b00 && botoes==0b01) || (botoess==0b11 && botoes==0b01)){
-
-		  GPIOA->ODR|=GPIO_ODR_OD4; 	//led amarelo em 1
-		  GPIOB->ODR&=~GPIO_ODR_OD10; //led verde em 0
- }
-	  else{
-		  GPIOA->ODR&=~GPIO_ODR_OD4; //led amarelo em 0
-		   GPIOB->ODR&=~GPIO_ODR_OD10;//led verde em 0
-	  }
-
-  }
+	/* Infinite loop */
+	while (1)
+	{
+		// Lendo as entradas
+		botoesA=GPIOA->IDR & (GPIO_IDR_ID0|GPIO_IDR_ID1);
+		botoesB=GPIOB->IDR & (GPIO_IDR_ID8|GPIO_IDR_ID9);
+	
+		botoesB=botoesB>>8;
+	
+		//se todas as chaves estiverem na mesma posição - ligar led verde
+		if((botoesA==0b00 && botoesB==0b00)|| (botoesA==0b11 && botoesB==0b11)){
+			GPIOA->ODR&=~GPIO_ODR_OD4; //led amarelo em 0
+			GPIOB->ODR|=GPIO_ODR_OD10; //led verde em 1
+		}
+	
+		//se somente uma chave estiver diferente - ligar led amarelo
+		else if((botoesB==0b10 && botoesA==0b00) || (botoesB==0b10 && botoesA==0b11) || (botoesB==0b01 && botoesA==0b00) || (botoesB==0b01 && botoesA==0b11) || (botoesB==0b00 && botoesA==0b10) || (botoesB==0b11 && botoesA==0b10) || (botoesB==0b00 && botoesA==0b01) || (botoesB==0b11 && botoesA==0b01)){
+			GPIOA->ODR|=GPIO_ODR_OD4; 	//led amarelo em 1
+			GPIOB->ODR&=~GPIO_ODR_OD10; //led verde em 0
+	 	}
+			
+	  	else{
+			GPIOA->ODR&=~GPIO_ODR_OD4; //led amarelo em 0
+			GPIOB->ODR&=~GPIO_ODR_OD10;//led verde em 0
+	  	}
+	}
 }
-
