@@ -6,6 +6,10 @@ The displays are multiplexed; each display is active for 5ms, displaying the cor
 The code uses two timers:
 - Timer 10: 2Hz, increments the number
 - Timer 11: 200Hz, multiplexes the displays
+
+PS: This implementations utilize interruption functions (for TIM10, for example).
+    Make sure to check the interruptions slide show on our drive before proceeding
+    or implement it without it
 */
 
 #include "stm32f4xx.h"
